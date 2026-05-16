@@ -1,0 +1,113 @@
+/* Desktop (>=768px): side panel fixed to the right */
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  min-width: 320px;
+  max-width: 480px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  animation: slideInRight 0.25s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Mobile (<768px): bottom sheet */
+@media (max-width: 767px) {
+  .panel {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-width: unset;
+    max-width: 100%;
+    height: 92vh;
+    min-height: 90vh;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.2);
+    animation: slideInUp 0.25s ease-out;
+  }
+
+  @keyframes slideInUp {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.countryName {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.closeButton {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.closeButton:hover {
+  background: #fdecea;
+  color: #e74c3c;
+  border-color: #e74c3c;
+}
+
+.closeButton:focus-visible {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile: adjust for virtual keyboard (Req 1.6) */
+@media (max-width: 767px) {
+  .content {
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
+  }
+}
+
+.placeholder {
+  padding: 0.75rem 0;
+  color: #aaa;
+  font-style: italic;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1rem;
+}

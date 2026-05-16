@@ -1,0 +1,147 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 1rem;
+  background-color: #f8f9fa;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #213547;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-align: center;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  min-height: 44px;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #4a90d9;
+  box-shadow: 0 0 0 2px rgba(74, 144, 217, 0.2);
+}
+
+.input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  background-color: #fdecea;
+  border-radius: 6px;
+  border: 1px solid #f5c6cb;
+}
+
+.submitButton {
+  padding: 0.75rem 1rem;
+  min-height: 44px;
+  background-color: #4a90d9;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #357abd;
+}
+
+.submitButton:disabled {
+  background-color: #a0c4e8;
+  cursor: not-allowed;
+}
+
+.switchSection {
+  margin-top: 1rem;
+}
+
+.switchText {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.switchButton {
+  background: none;
+  border: none;
+  color: #4a90d9;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem;
+  min-height: 44px;
+  min-width: 44px;
+  text-decoration: underline;
+}
+
+.switchButton:hover:not(:disabled) {
+  color: #357abd;
+}
+
+.switchButton:disabled {
+  color: #a0c4e8;
+  cursor: not-allowed;
+}
+
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+}
+
+.loadingText {
+  font-size: 1rem;
+  color: #666;
+}

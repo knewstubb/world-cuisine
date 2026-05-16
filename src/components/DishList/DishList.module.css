@@ -1,0 +1,13 @@
+.dishList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.emptyMessage {
+  color: #888;
+  font-style: italic;
+  padding: 1rem 0;
+}

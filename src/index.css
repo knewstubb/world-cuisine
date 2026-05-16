@@ -1,0 +1,69 @@
+/* Global Reset Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  color: #213547;
+  background-color: #ffffff;
+  font-size: 16px;
+}
+
+/* Responsive font sizes — min 14px body, 12px secondary down to 320px viewport */
+@media (max-width: 767px) {
+  html {
+    font-size: clamp(14px, 4vw, 16px);
+  }
+}
+
+@media (max-width: 320px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+}
+
+input {
+  font: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Ensure secondary/small text never goes below 12px on mobile (Req 1.5) */
+@media (max-width: 767px) {
+  small,
+  .secondary-text {
+    font-size: max(0.75rem, 12px);
+  }
+}
