@@ -67,6 +67,26 @@ export function useSyncService(): SyncServiceValue {
 
       // Get current session for household_id and user_id
       const { data: { session } } = await supabase.auth.getSession();
+
+      // Load popular dishes from Supabase (independent of household membership)
+      if (navigator.onLine) {
+        const { data: popular } = await supabase
+          .from('popular_dishes')
+          .select('*')
+          .order('sort_order', { ascending: true });
+        if (popular) {
+          const mappedPopular: PopularDish[] = popular.map((p) => ({
+            id: p.id,
+            country_code: p.country_code,
+            name: p.name,
+            recipe_link: p.recipe_link,
+            sort_order: p.sort_order,
+          }));
+          setPopularDishes(mappedPopular);
+          await cachePopularDishes(mappedPopular);
+        }
+      }
+
       if (session?.user) {
         userIdRef.current = session.user.id;
         // Fetch household_id for the user
@@ -97,23 +117,6 @@ export function useSyncService(): SyncServiceValue {
               // Update everCookedNames from all DB entries (includes historical)
               const freshCookedSet = new Set(mapped.map((e) => e.name.trim().toLowerCase()));
               setEverCookedNames(freshCookedSet);
-            }
-
-            // Load popular dishes from Supabase
-            const { data: popular } = await supabase
-              .from('popular_dishes')
-              .select('*')
-              .order('sort_order', { ascending: true });
-            if (popular) {
-              const mappedPopular: PopularDish[] = popular.map((p) => ({
-                id: p.id,
-                country_code: p.country_code,
-                name: p.name,
-                recipe_link: p.recipe_link,
-                sort_order: p.sort_order,
-              }));
-              setPopularDishes(mappedPopular);
-              await cachePopularDishes(mappedPopular);
             }
           }
         }
