@@ -12,6 +12,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  padding-top: calc(0.5rem + env(safe-area-inset-top, 0px));
+  padding-left: calc(1rem + env(safe-area-inset-left, 0px));
+  padding-right: calc(1rem + env(safe-area-inset-right, 0px));
   background-color: #213547;
   color: #ffffff;
   min-height: 48px;
