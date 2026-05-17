@@ -81,6 +81,9 @@ export default function MapView({ onCountrySelect, countriesWithDishes }: MapVie
     <MapContainer
       center={[20, 0]}
       zoom={2}
+      minZoom={2}
+      maxBounds={[[-90, -180], [90, 180]]}
+      maxBoundsViscosity={1.0}
       className={styles.mapContainer}
       scrollWheelZoom={true}
       dragging={true}
